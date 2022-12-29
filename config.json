@@ -1,0 +1,23 @@
+{
+	"Params":{
+		"blog_name":"Blog Name",
+		"blog_subheading":"Blog Subheading",
+		"secret_key":"Secret_kety",
+		"local_server":"True",
+		"local_URI":"mysql://root:@127.0.0.1/Flask",
+		"prod_URI":"mysql://root:@127.0.0.1/Flask",
+		"fb_url":"https://www.facebook.com/",
+		"tw_url":"https://twitter.com/",
+		"gt_url":"https://github.com/",
+		"about_text":"About_Text_here !",
+		"no_of_posts":"2",
+		"admin_username": "Admin_username",
+		"admin_password": "Admin_password",
+		"upload_location": "//home//tanishk//Documents//FlaskBlog//static",
+		"index_img":"marc-bossow-JOjj1EtcWZQ-unsplash.jpg",
+		"about_img": "simon-english-48nerZQCHgo-unsplash.jpg", 
+		"contact_img": "contact-bg.jpg"
+
+
+	}
+}
