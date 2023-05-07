@@ -18,6 +18,14 @@ app = Flask(__name__)
 app.secret_key = params["secret_key"]
 app.config['UPLOAD_FOLDER']=params['upload_location']
 
+
+app.config['MAIL_SERVER'] = "smtp.googlemail.com"
+app.config['MAIL_USERNAME'] = params['gmail-user']
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_PASSWORD'] = params['gmail-pass']
+app.config['MAIL_USE_TLS'] = True
+mail = Mail(app)
+
 if(local_server):
 	app.config['SQLALCHEMY_DATABASE_URI'] = params['local_URI']
 else:
@@ -86,6 +94,8 @@ def contact():
 		
 		db.session.add(entry)
 		db.session.commit()
+		msg = Message("New Message form "+name, sender=email, recipients=[params['gmail-user']],body = mes+"\n"+phone_num)
+		mail.send(msg)
 		return redirect("/")
 
 	return render_template("contact.html",params=params)
@@ -171,5 +181,5 @@ def delete(sno):
 	return redirect("/login")
 
 
-app.run(debug=True)
+app.run(debug=True, port=8001)
 
